@@ -17,7 +17,7 @@ class EjController extends AbstractController
         $s=10;
         $z=2;
         $m='Prueba';
-        return $this->render('Ej2.html.twig', [
+        return $this->render('contador.html.twig', [
             'control' => $m,
             's' => $s,
              'z' => $s,

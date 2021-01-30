@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block contenedor %}
+             {% for i in range(1, 20) %}
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i }}</h5>
+                            {# En esta linea Cambio lo que viene del controlador a Mayuscula #}
+                            <p class="card-text">Some quick example text to build on the card title {{control|upper}}</p>
+                         </div>
+                    </div>
+                </div>
+            {% endfor %}
+{% endblock %}
+
+
+
+{% block decision %}
+ {% if   s == 1 %}
+                    <h1>esto es igual a S</h1>
+                  {% else %}
+                   <h1>z es igual a {{z}}</h1>
+                  {% endif %}
+{% endblock %}
