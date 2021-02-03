@@ -23,13 +23,10 @@ class UserRepository extends ServiceEntityRepository
         $qb = $this->getEntityManager()->createQueryBuilder()
             ->select('u')
             ->from('App:User','u')
-            ->where('u.nombre = :nombre')
+            ->where('u.email = :nombre')
             ->setParameter('nombre',$nombre);
 
-
-
-            
-        return $qb->getQuery()->getResult();
+      return $qb->getQuery()->getResult();
 
     }
 }

@@ -11,11 +11,18 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\User;
+
+/**
+ * @Rest\Route("/prueba")
+ */
+
 class LoginController extends AbstractFOSRestController
 {
+
     /**
      * @Rest\Get("/login", name="ingreso")
      */
+
     public function index(Request $request)
     {
         return $this->render('login.html.twig' );
@@ -30,26 +37,22 @@ class LoginController extends AbstractFOSRestController
      * @return Response
      */
 
-        public function login(Request $request){
-             $email = $request->get('email');
-             $password = $request->get('password');
+        public function login(Request $request,ParamFetcherInterface $paramFetcher){
+
+             $email = $paramFetcher->get('email');
+             $password = $paramFetcher->get('password');
+             dd($email);
              $em = $this->getDoctrine()->getManager();
              $repositorio= $this->getDoctrine()->getRepository(user::class);
              $uservalido= $repositorio->findBy([
                 "email" => $email,
                 "pass" => $password
                                                 ]);
-            
-            if (!empty($uservalido)){
-               dd($email);
-                                    }
-           else{
-               
-                    dd($password);
-            }
-            
-            
-            
-             
+             if (!empty($uservalido)){
+                  dd($email);
+                                     }
+            else{
+                 dd($password);
+                }
        }
     }
