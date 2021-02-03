@@ -41,7 +41,7 @@ class LoginController extends AbstractFOSRestController
 
              $email = $paramFetcher->get('email');
              $password = $paramFetcher->get('password');
-             dd($email);
+           
              $em = $this->getDoctrine()->getManager();
              $repositorio= $this->getDoctrine()->getRepository(user::class);
              $uservalido= $repositorio->findBy([
