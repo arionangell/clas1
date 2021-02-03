@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\User;
 class LoginController extends AbstractFOSRestController
 {
-     /**
-     * @Route("/login", name="login1")
+    /**
+     * @Rest\Get("/login", name="ingreso")
      */
     public function index(Request $request)
     {
@@ -30,9 +30,9 @@ class LoginController extends AbstractFOSRestController
      * @return Response
      */
 
-        public function login(Request $request, ParamFetcherInterface $paramFetcher){
-             $email = $paramFetcher->get('email');
-             $password = $paramFetcher->get('password');
+        public function login(Request $request){
+             $email = $request->get('email');
+             $password = $request->get('password');
              $em = $this->getDoctrine()->getManager();
              $repositorio= $this->getDoctrine()->getRepository(user::class);
              $uservalido= $repositorio->findBy([

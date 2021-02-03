@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use JMS\Serializer\Annotation\Exclude;
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * Usuario
+ *
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
 {
